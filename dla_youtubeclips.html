@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Look Away</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles specific to dla.html */
+        .page-content-wrapper {
+            max-width: 1200px; /* Or your desired max width */
+            margin: 0 auto; /* Centers the content */
+            padding: 0 20px; /* Adds margin on the sides */
+        }
+
+        .video-main-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-main-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .facts-container {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .facts-container p {
+            margin: 5px 0;
+        }
+
+        .nav-sections {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .nav-sections a {
+            text-decoration: none;
+            background-color: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            flex-grow: 1; /* Make buttons grow to fill space */
+            text-align: center;
+            margin: 0 5px; /* Space between buttons */
+        }
+        .nav-sections a:first-child { margin-left: 0; }
+        .nav-sections a:last-child { margin-right: 0; }
+
+
+        .section {
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Styles for Listening section clips */
+        .listening-clip {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            margin-bottom: 30px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 15px; /* Space between video and transcript */
+        }
+
+        .listening-clip .clip-video {
+            flex-shrink: 0; /* Prevent video from shrinking */
+            width: 250px; /* Max width for small clip */
+            height: 140.625px; /* 16:9 aspect ratio for 250px width */
+            position: relative;
+            overflow: hidden; /* Ensure content stays within bounds */
+        }
+
+        .listening-clip .clip-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .listening-clip .clip-transcript {
+            flex-grow: 1; /* Allow transcript to take remaining space */
+            max-width: calc(100% - 250px - 15px); /* Max width for transcript next to video + gap */
+        }
+
+        @media (max-width: 768px) {
+            .listening-clip {
+                flex-direction: column; /* Stack video and transcript on smaller screens */
+                align-items: flex-start; /* Align stacked items to the start */
+            }
+            .listening-clip .clip-video {
+                width: 100%; /* Video takes full width on small screens */
+                height: auto; /* Allow height to adjust */
+                padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+            }
+            .listening-clip .clip-transcript {
+                max-width: 100%; /* Transcript takes full width */
+            }
+        }
+
+
+        .blank-word {
+            display: inline-block; /* Allows padding and background */
+            background-color: #eee;
+            padding: 0 5px;
+            border-bottom: 1px dashed #333;
+            min-width: 50px; /* Ensure blank has some width */
+            text-align: center;
+            font-family: monospace; /* For a 'blank' look */
+            letter-spacing: 2px;
+        }
+
+        .hint-button, .solution-button {
+            background-color: #555;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .solution-button {
+            background-color: #007bff;
+        }
+
+        /* Styles for Comprehension 1 section */
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .check-answers-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="page-content-wrapper">
+        <h1>DLA Page</h1>
+
+        <div class="video-main-container">
+            <iframe id="main-video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="facts-container">
+            <p><strong>Title:</strong> DON'T LOOK AWAY | Horror Short Film</p>
+            <p><strong>Channel:</strong> Christopher Cox</p>
+            <p><strong>Run Time:</strong> 8 minutes 20 seconds</p>
+            <p><strong>Genre:</strong> Horror</p>
+            <p><strong>Ages:</strong> Teen+ (due to horror elements)</p>
+            <p><strong>Language Difficulty:</strong> Intermediate (conversational English, but with some suspenseful vocabulary)</p>
+            <p><strong>Story Difficulty:</strong> The video is about a supernatural entity that appears outside a family's home. The entity, described as a "creepy suit guy" [00:02:29] with a bag over his head and chains [00:01:44], gets closer if someone looks away from it [00:06:50]. The father explains that this entity has been following their family since he met their mother and is now after his children [00:06:13]. The video ends with the implication that the mother has arrived and is now in danger [00:07:05].</p>
+        </div>
+
+        <div class="nav-sections">
+            <a href="#listening">Listening</a>
+            <a href="#comprehension1">Comprehension 1</a>
+            <a href="#comprehension2">Comprehension 2</a>
+            <a href="#vocabulary">Vocabulary</a>
+            <a href="#tips">Tips</a>
+        </div>
+
+        <div id="listening" class="section">
+            <h2>Listening</h2>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <iframe id="listening1-iframe" src="/clips/DLA Listening 1.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="clip-transcript">
+                    <p>Father: "Savannah, you need to keep looking at it. Don't you dare look <span class="blank-word" id="blank1" data-solution="away">_______</span>!"</p>
+                    <button class="hint-button" onclick="revealHint('blank1', 'away')">Hint</button>
+                    <button class="solution-button" onclick="revealSolution('blank1', 'away')">Solution</button>
+                </div>
+                <button class="replay-button" onclick="replayClip('listening1-iframe', 15, 25)">Replay Clip</button>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <iframe id="clip-video-2" src="https://www.youtube.com/embed/UCVF6tlq5i2z2Uk-ncFFsQww?start=170&end=180&controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="clip-transcript">
+                    <p>Jim: "So as long as one of us is <span class="blank-word" id="blank2" data-solution="looking">_______</span>, it's fine?"</p>
+                    <button class="hint-button" onclick="revealHint('blank2', 'looking')">Hint</button>
+                    <button class="solution-button" onclick="revealSolution('blank2', 'looking')">Solution</button>
+                </div>
+                <button class="replay-button" onclick="replayClip('clip-video-2', 170, 180)">Replay Clip</button>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <iframe id="clip-video-3" src="https://www.youtube.com/embed/UCVF6tlq5i2z2Uk-ncFFsQww?start=400&end=410&controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="clip-transcript">
+                    <p>Narrator: "But when Savannah looked <span class="blank-word" id="blank3" data-solution="away">_______</span>, another entity appeared."</p>
+                    <button class="hint-button" onclick="revealHint('blank3', 'away')">Hint</button>
+                    <button class="solution-button" onclick="revealSolution('blank3', 'away')">Solution</button>
+                </div>
+                <button class="replay-button" onclick="replayClip('clip-video-3', 400, 410)">Replay Clip</button>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <iframe id="clip-video-4" src="https://www.youtube.com/embed/UCVF6tlq5i2z2Uk-ncFFsQww?start=370&end=380&controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="clip-transcript">
+                    <p>Father: "It's been <span class="blank-word" id="blank4" data-solution="following">_______</span> our family since I met your mother."</p>
+                    <button class="hint-button" onclick="revealHint('blank4', 'following')">Hint</button>
+                    <button class="solution-button" onclick="revealSolution('blank4', 'following')">Solution</button>
+                </div>
+                <button class="replay-button" onclick="replayClip('clip-video-4', 370, 380)">Replay Clip</button>
+            </div>
+
+        </div>
+
+        <div id="comprehension1" class="section">
+            <h2>Comprehension 1</h2>
+            <div class="question">
+                <p>1. What happens if you look away from the entity?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. It disappears.</label>
+                    <label><input type="radio" name="q1" value="b"> B. It gets closer.</label>
+                    <label><input type="radio" name="q1" value="c"> C. Nothing happens.</label>
+                    <label><input type="radio" name="q1" value="d"> D. It multiplies.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What does the entity look like?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. A clown.</label>
+                    <label><input type="radio" name="q2" value="b"> B. A creepy suit guy with a bag over his head and chains.</label>
+                    <label><input type="radio" name="q2" value="c"> C. A shadow.</label>
+                    <label><input type="radio" name="q2" value="d"> D. A monster.</label>
+                </div>
+            </div>
+             <div class="question">
+                <p>3. Who is the entity after?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> A. The father.</label>
+                    <label><input type="radio" name="q3" value="b"> B. The mother.</label>
+                    <label><input type="radio" name="q3" value="c"> C. The children.</label>
+                     <label><input type="radio" name="q3" value="d"> D. The whole family.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. What does the family try to do?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> A. Run away.</label>
+                    <label><input type="radio" name="q4" value="b"> B. Fight it.</label>
+                    <label><input type="radio" name="q4" value="c"> C. Understand its rules.</label>
+                    <label><input type="radio" name="q4" value="d"> D. Ignore it.</label>
+                </div>
+            </div>
+            <div class="question">
+                 <p>5. What is implied at the end of the video?</p>
+                 <div class="options">
+                     <label><input type="radio" name="q5" value="a"> A. The family escapes.</label>
+                     <label><input type="radio" name="q5" value="b"> B. The mother is in danger.</label>
+                     <label><input type="radio" name="q5" value="c"> C. The entity disappears.</label>
+                     <label><input type="radio" name="q5" value="d"> D. The police arrive.</label>
+                 </div>
+             </div>
+            <button class="check-answers-button" onclick="checkAnswers()">Check Answers</button>
+            <div id="answer-feedback"></div>
+
+            <script>
+                // Store the main video URL in a variable
+                const mainVideoUrl = "http://www.youtube.com/embed/4f3hG-5grlw";
+                const listneningUrl1 = mainVideoUrl + "?start=170&end=173"
+
+                document.getElementById('main-video-iframe').src = mainVideoUrl;
+                document.getElementById('listening1-iframe').src = listneningUrl1;
+
+                function checkAnswers() {
+                    const answers = {
+                        q1: "b",
+                        q2: "b",
+                        q3: "c",
+                        q4: "c",
+                        q5: "b"
+                    };
+                    let correctCount = 0;
+                    const feedbackDiv = document.getElementById('answer-feedback');
+                    feedbackDiv.innerHTML = ''; // Clear previous feedback
+
+                    for (const question in answers) {
+                        const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                        const questionElement = document.querySelector(`input[name="${question}"]`).closest('.question');
+
+                        // Clear previous highlighting
+                        questionElement.querySelectorAll('label').forEach(label => {
+                            label.classList.remove('correct', 'incorrect');
+                        });
+
+                        if (selectedAnswer) {
+                            if (selectedAnswer.value === answers[question]) {
+                                correctCount++;
+                                selectedAnswer.parentElement.classList.add('correct');
+                            } else {
+                                 selectedAnswer.parentElement.classList.add('incorrect');
+                            }
+                        }
+                    }
+                    feedbackDiv.textContent = `You got ${correctCount} out of 5 correct!`;
+                }
+
+                // JavaScript for Hint and Solution buttons
+                const revealedLetters = {}; // Store how many letters are revealed for each blank
+
+                function revealHint(blankId, solution) {
+                    const blankElement = document.getElementById(blankId);
+                    if (!blankElement) return;
+
+                    if (!revealedLetters[blankId]) {
+                        revealedLetters[blankId] = 0;
+                    }
+
+                    if (revealedLetters[blankId] < solution.length) {
+                        revealedLetters[blankId]++;
+                        const partiallyRevealed = solution.substring(0, revealedLetters[blankId]) +
+                                                 '_'.repeat(solution.length - revealedLetters[blankId]);
+                        blankElement.textContent = partiallyRevealed;
+                    }
+                }
+
+                function revealSolution(blankId, solution) {
+                    const blankElement = document.getElementById(blankId);
+                    if (blankElement) {
+                        blankElement.textContent = solution;
+                        revealedLetters[blankId] = solution.length; // Mark as fully revealed
+                    }
+                }
+            </script>
+        </div>
+
+        <div id="comprehension2" class="section">
+            <h2>Comprehension 2</h2>
+            <p>This section will contain more comprehension exercises.</p>
+        </div>
+
+        <div id="vocabulary" class="section">
+            <h2>Vocabulary</h2>
+            <p>This section will focus on vocabulary from the video.</p>
+        </div>
+
+        <div id="tips" class="section">
+            <h2>Tips</h2>
+            <p>Helpful tips related to the video content.</p>
+        </div>
+    </div> <script src="script.js"></script>
+</body>
+</html>
