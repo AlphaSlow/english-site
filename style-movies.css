@@ -1,0 +1,368 @@
+/* Styles specific to dla.html */
+
+.video-main-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.video-main-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.facts-container {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.facts-container p {
+    margin: 5px 0;
+}
+
+.section {
+    padding: 20px; /* Base padding for sections */
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* Adjustment to move text closer to the top for sections */
+.section h2 {
+    margin-top: 0; /* Remove default top margin from heading */
+    padding-top: 0; /* Remove potential top padding */
+}
+
+.section p:first-of-type {
+    margin-top: 0; /* Remove default top margin from the first paragraph */
+    padding-top: 0;
+}
+
+/* Styles for new navigation buttons */
+.nav-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+.nav-sections a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-sections button {
+    background-color: #007bff; /* Blue color for navigation buttons */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.nav-sections button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for Listening section clips */
+.listening-clip,
+.tips-clip { /* Added .tips-clip here */
+    display: flex;
+    align-items: flex-start; /* Align items to the start (top) */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 15px; /* Space between video and transcript/text */
+}
+
+.listening-clip .clip-video,
+.tips-clip .clip-video { /* Added .tips-clip here */
+    flex-shrink: 0; /* Prevent video from shrinking */
+    width: 250px; /* Max width for small clip */
+    height: 140.625px; /* 16:9 aspect ratio for 250px width */
+    position: relative;
+    overflow: hidden; /* Ensure content stays within bounds */
+}
+
+/* Adjustments for the new <video> tag */
+.listening-clip .clip-video video,
+.tips-clip .clip-video video { /* Added .tips-clip here */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the area without distortion */
+}
+
+.listening-clip .clip-transcript,
+.tips-clip .clip-text { /* Added .tips-clip and .clip-text */
+    flex-grow: 1; /* Allow transcript/text to take remaining space */
+    /* Adjusted max-width to allow more space, accounting for gap */
+    max-width: calc(100% - 250px - 25px); /* Increased gap for visual separation */
+    padding-left: 10px; /* Slight padding to push text right */
+}
+
+@media (max-width: 768px) {
+    .listening-clip,
+    .tips-clip { /* Added .tips-clip here */
+        flex-direction: column; /* Stack video and transcript on smaller screens */
+        align-items: flex-start; /* Align stacked items to the start */
+    }
+    .listening-clip .clip-video,
+    .tips-clip .clip-video { /* Added .tips-clip here */
+        width: 100%; /* Video takes full width on small screens */
+        height: auto; /* Allow height to adjust */
+        padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+    }
+    .listening-clip .clip-transcript,
+    .tips-clip .clip-text { /* Added .tips-clip and .clip-text */
+        max-width: 100%; /* Transcript takes full width */
+        padding-left: 0; /* Remove padding when stacked */
+    }
+}
+
+.blank-word {
+    display: inline-flex; /* Use flex to align input and icon side-by-side */
+    align-items: center; /* Vertically center content */
+    position: relative; /* For positioning the feedback icon */
+    min-width: 120px; /* Ensure enough space for input and potential icon */
+    vertical-align: middle; /* Keep it aligned with surrounding text */
+    padding: 0 2px; /* Small horizontal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Style for the dynamically created input field */
+.blank-word input[type="text"] {
+    flex-grow: 1; /* Allow input to take up available space */
+    border: none;
+    /* border-bottom: 2px dashed #999; /* This creates the blank line visual */ */
+    padding: 2px 0;
+    background-color: transparent; /* Keep background clean */
+    font-family: inherit; /* Inherit font from parent for consistency */
+    font-size: 1em; /* Inherit font size */
+    text-align: center; /* Center the typed text */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    width: 100%; /* Ensure input takes full width of its flex container */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+/* Highlight input on focus */
+.blank-word input[type="text"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Style for the feedback icon (checkmark or X) */
+.blank-word .feedback-icon {
+    position: absolute;
+    right: -25px; /* Position to the right of the blank-word container */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    width: 20px; /* Fixed width for consistency */
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease, right 0.3s ease; /* Smooth animation */
+    pointer-events: none; /* Make sure it doesn't interfere with clicks */
+}
+
+/* Styles for a correctly filled blank */
+.blank-word.correct input[type="text"] {
+    border-color: #28a745; /* Green border */
+    color: #28a745; /* Green text */
+}
+
+.blank-word.correct .feedback-icon {
+    color: #28a745; /* Green checkmark */
+    opacity: 1; /* Show icon */
+    right: -18px; /* Slightly closer when visible */
+}
+
+/* Styles for an incorrectly filled blank */
+.blank-word.incorrect input[type="text"] {
+    border-color: #dc3545; /* Red border */
+    color: #dc3545; /* Red text */
+}
+
+.blank-word.incorrect .feedback-icon {
+    color: #dc3545; /* Red X */
+    opacity: 1; /* Show icon */
+    right: -18px; /* Slightly closer when visible */
+}
+
+/* Optional: Style for input when solution is shown or it's disabled */
+.blank-word.solution-shown input[type="text"],
+.blank-word input[type="text"]:disabled {
+    pointer-events: none; /* Make unclickable */
+    cursor: default;
+    background-color: #f0f0f0; /* Slightly different background to indicate disabled */
+}
+
+/* Ensure original blank-word styles are removed/modified if they conflict */
+/* Remove or adjust these properties from the original .blank-word if they exist and are no longer needed for the container: */
+/*
+.blank-word {
+    background-color: #eee;
+    padding: 0 5px;
+    border-bottom: 1px dashed #333; // This will be replaced by input's border-bottom
+    min-width: 50px;
+    text-align: center;
+    font-family: monospace; // This will now apply to the input field through inherit or specific rule
+    letter-spacing: 2px; // This will apply to the input field
+    vertical-align: middle;
+}
+*/
+
+/* Adjust spacing for buttons in listening clips */
+.listening-clip .clip-transcript button {
+    margin-top: 10px; /* Add some space above hint/solution buttons */
+}
+
+/* Styles for Vocabulary Drag & Drop */
+.draggable-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.draggable-word {
+    background-color: #e0e0e0;
+    border: 1px solid #bbb;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: grab;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.1s ease-out;
+}
+
+.draggable-word:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}
+
+.blank-drop-target {
+    display: inline-block;
+    min-width: 80px; /* Wider blank for words */
+    height: 1.5em; /* Height to match line height */
+    border: 1px dashed #999;
+    background-color: #fefefe;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.blank-drop-target.correct-answer {
+    background-color: #d4edda; /* Light green */
+    border-color: #28a745; /* Green border */
+    color: #155724; /* Darker green text */
+}
+
+.blank-drop-target.incorrect-answer {
+    background-color: #f8d7da; /* Light red */
+    border-color: #dc3545; /* Red border */
+    color: #721c24; /* Darker red text */
+}
+
+.hint-button, .solution-button {
+    background-color: #555;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.solution-button {
+    background-color: #007bff;
+}
+
+/* Styles for Comprehension 1 section */
+.question {
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.check-answers-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px; /* Add margin for spacing */
+}
+
+.check-answers-button:hover {
+    background-color: #45a049;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+/* Styles for highlighting words in Comprehension 2 (Find the Mistakes) */
+.highlighted {
+    background-color: yellow; /* Or any color you prefer */
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Styles for navigation buttons at the bottom */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.page-navigation a {
+    text-decoration: none;
+}
+
+.page-navigation button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.page-navigation button:hover {
+    background-color: #555;
+}
