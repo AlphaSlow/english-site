@@ -12,12 +12,37 @@
         // Make sure all necessary data is uncommented and complete here!
         const pageData = {
             mainVideoSrc: "https://www.youtube.com/embed/4f3hG-5grlw",
-            // listeningBlanks: [
-            //     { id: 'blank1', solution: 'supposed', videoSrc: 'clips/DLA Listening 1.mp4', transcript: '<i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed">_______</span> to get here again?<br><i>Dad:</i> &nbspAbout 4:30, but knowing her, she’ll probably be early.<br><i>Savannah:</i> Ok, cos, there\'s a weird man outside our window staring at me.' },
-            //     // { id: 'blank2', solution: 'staring', videoSrc: 'clips/DLA Listening 2.mp4', transcript: '<i>Savannah:</i> Ok, cos, there\'s a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring">_______</span> at me.<br><i>Dad:</i> A man? What does he look like?' },
-            //     // { id: 'blank3', solution: 'creepy', videoSrc: 'clips/DLA Listening 3.mp4', transcript: '<i>Savannah:</i> You can see it too?<br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="creepy">_______</span> suit guy. He’s staring at me.' },
-            //     { id: 'blank4', solution: 'going on', videoSrc: 'clips/DLA Listening 4.mp4', transcript: '<i>Savannah</i>: Dad, what the hell was that? What\'s <span class="blank-word" id="blank4" data-solution="going on">_______</span>?' }
-            // ],
+            listeningBlanks: [
+                {
+                    id: 'blank1',
+                    solution: 'supposed', // Store the solution here
+                    explanation: 'In this context, "supposed to" means expected to or meant to. Savannah is asking when her mother is expected to arrive.',
+                    videoSrc: 'clips/DLA/DLA Listening 1.mp4', // Example, replace with actual
+                    transcript: '<i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed"></span> to get here again?<br><i>Dad:</i> &nbspAbout 4:30, but knowing her, she’ll probably be early.'
+                },
+                {
+                    id: 'blank2',
+                    solution: 'staring', // Store the solution here
+                    explanation: "'Staring at' means looking fixedly or intently at something or someone. Savannah feels a direct, intense gaze from the man.",
+                    videoSrc: 'clips/DLA/DLA Listening 2.mp4', // Example, replace with actual
+                    transcript: '<i>Savannah:</i> Ok, cos, there\'s a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring">_______</span> at me.<br><i>Dad:</i> A man? What does he look like?'
+                },
+                {
+                    id: 'blank3',
+                    solution: 'creepy', // Store the solution here
+                    explanation: "'Creepy' describes something that causes an unpleasant feeling of fear or unease. Jim is suggesting the man looks unsettling.",
+                    videoSrc: 'clips/DLA/DLA Listening 3.mp4',
+                    transcript: '<i>Savannah:</i> You can see it too?<br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="creepy">_______</span> suit guy. He’s staring at me.'
+                },
+                {
+                    id: 'blank4',
+                    solution: 'going on', // Store the solution here
+                    explanation: "'What\'s going on?' is a common informal way to ask what is happening or what the situation is. Savannah is asking for an explanation for the strange events.",
+                    videoSrc: 'clips/DLA/DLA Listening 4.mp4',
+                    transcript: '<i>Savannah</i>: Dad, what the hell was that? What\'s <span class="blank-word" id="blank4" data-solution="going on">_______</span>?'
+                }
+                // ... add more listening blanks as needed
+            ],
             comprehensionAnswers: {
                 q1: "b", q2: "b", q3: "d", q4: "c", q5: "b"
             },
@@ -66,64 +91,70 @@
 
         <div id="listening" class="section">
             <h2>Listening</h2>
-            <p><i> Press the Hint button as many times as you like to get more information. Press the Solution button to see the full answer.</i></p>
+            <i>Press the Hint button as many times as you like to see more and more information. Press the Solution button to see the full answer.</i>
+            <br><br>
+
             <div class="listening-clip">
                 <div class="clip-video">
                     <video id="listening1-video" controls>
-                        <source src="DLA/clips/DLA Listening 1.mp4" type="video/mp4">
+                        <source src="clips/DLA/DLA Listening 1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="clip-transcript">
-                    <p><i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed"></span> to get here again?
+                    <p><i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed" data-explanation="In this context, 'supposed to' means expected to or meant to. Savannah is asking when her mother is expected to arrive."></span> to get here again?
                     <br><i>Dad:</i> &nbspAbout 4:30, but knowing her, she’ll probably be early.</p>
-                    <button class="hint-button" data-blank-id="blank1" data-solution="supposed">Hint</button>
-                    <button class="solution-button" data-blank-id="blank1" data-solution="supposed">Solution</button>
-                </div>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank1" data-solution="supposed">Hint</button>
+                        <button class="solution-button" data-blank-id="blank1" data-solution="supposed">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
             </div>
 
             <div class="listening-clip">
                 <div class="clip-video">
                     <video id="listening2-video" controls>
-                        <source src="DLA/clips/DLA Listening 2.mp4" type="video/mp4">
+                        <source src="clips/DLA/DLA Listening 2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="clip-transcript">
-                    <p><i>Savannah:</i> Ok, cos, there's a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring">_______</span> at me.
+                    <p><i>Savannah:</i> Ok, cos, there's a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring" data-explanation="'Staring at' means looking fixedly or intently at something or someone. Savannah feels a direct, intense gaze from the man.">_______</span> at me.
                     <br><i>Dad:</i> A man? What does he look like?</p>
-                    <button class="hint-button" data-blank-id="blank2" data-solution="staring">Hint</button>
-                    <button class="solution-button" data-blank-id="blank2" data-solution="staring">Solution</button>
-                </div>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank2" data-solution="staring">Hint</button>
+                        <button class="solution-button" data-blank-id="blank2" data-solution="staring">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
             </div>
 
             <div class="listening-clip">
                 <div class="clip-video">
                     <video id="listening3-video" controls>
-                        <source src="DLA/clips/DLA Listening 3.mp4" type="video/mp4">
+                        <source src="clips/DLA/DLA Listening 3.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="clip-transcript">
                     <p><i>Savannah:</i> You can see it too?
-                    <br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="creepy">_______</span> suit guy. He’s staring at me. </p>
-                    <button class="hint-button" data-blank-id="blank3" data-solution="creepy">Hint</button>
-                    <button class="solution-button" data-blank-id="blank3" data-solution="creepy">Solution</button>
-                </div>
+                    <br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="Creepy" data-explanation="'Creepy' describes something that causes an unpleasant feeling of fear or unease. Jim is suggesting the man looks unsettling.">_______</span> suit guy. He’s staring at me. </p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank3" data-solution="Creepy">Hint</button>
+                        <button class="solution-button" data-blank-id="blank3" data-solution="Creepy">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
             </div>
 
             <div class="listening-clip">
                 <div class="clip-video">
                     <video id="listening4-video" controls>
-                        <source src="DLA/clips/DLA Listening 4.mp4" type="video/mp4">
+                        <source src="clips/DLA/DLA Listening 4.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="clip-transcript">
-                    <p><i>Savannah</i>: Dad, what the hell was that? What's <span class="blank-word" id="blank4" data-solution="going on">_______</span>?</p>
-                    <button class="hint-button" data-blank-id="blank4" data-solution="going on">Hint</button>
-                    <button class="solution-button" data-blank-id="blank4" data-solution="going on">Solution</button>
-                </div>
+                    <p><i>Savannah</i>: Dad, what the hell was that? What's <span class="blank-word" id="blank4" data-solution="going on" data-explanation="'What\'s going on?' is a common informal way to ask what is happening or what the situation is. Savannah is asking for an explanation for the strange events.">_______</span>?</p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank4" data-solution="going on">Hint</button>
+                        <button class="solution-button" data-blank-id="blank4" data-solution="going on">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
             </div>
         </div>
 

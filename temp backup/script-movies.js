@@ -121,22 +121,16 @@ const pageManager = (function() {
     // --- JavaScript for Interactive Listening Blanks ---
 
     function setupListeningBlanks() {
+        // Find all listening clips
         const listeningClips = document.querySelectorAll('.listening-clip');
 
         listeningClips.forEach(clipContainer => {
             const blankSpan = clipContainer.querySelector('.blank-word');
+            const hintButton = clipContainer.querySelector('.hint-button');
+            const solutionButton = clipContainer.querySelector('.solution-button');
 
             if (blankSpan) {
-                const blankId = blankSpan.id; // Get the ID of the blank span
-                // 🆕 MODIFIED: Retrieve solution from the _listeningBlanks array 🆕
-                const blankData = _listeningBlanks.find(blank => blank.id === blankId);
-                if (!blankData) {
-                    console.warn(`No data found for blank ID: ${blankId}`);
-                    return; // Skip if no data is found
-                }
-                const solution = blankData.solution.trim(); // Get the solution from the variable
-                const explanation = blankData.explanation || ''; // Also get explanation from variable
-
+                const solution = blankSpan.dataset.solution.trim(); // Get the correct solution
                 // If there's existing placeholder text like '_______', clear it
                 if (blankSpan.textContent.includes('_______')) {
                     blankSpan.textContent = '';
@@ -147,10 +141,6 @@ const pageManager = (function() {
                 input.placeholder = '_______'; // Placeholder for the input field
 
                 blankSpan.appendChild(input);
-
-                // Attach explanation to the blankSpan's dataset if it wasn't there already
-                // This makes it available consistently to checkListeningBlank
-                blankSpan.dataset.explanation = explanation;
 
                 // Call the new function to adjust input width
                 _adjustInputWidth(input, solution);
@@ -170,7 +160,6 @@ const pageManager = (function() {
                 });
 
                 // Hint Button Logic
-                const hintButton = clipContainer.querySelector('.hint-button');
                 if (hintButton) {
                     hintButton.addEventListener('click', () => {
                         _revealHint(blankSpan.id, solution);
@@ -178,7 +167,6 @@ const pageManager = (function() {
                 }
 
                 // Solution Button Logic
-                const solutionButton = clipContainer.querySelector('.solution-button');
                 if (solutionButton) {
                     solutionButton.addEventListener('click', () => {
                         _revealSolution(blankSpan.id, solution);
@@ -187,7 +175,6 @@ const pageManager = (function() {
             }
         });
     }
-
 
     /**
      * Checks the user's input for a listening blank.
