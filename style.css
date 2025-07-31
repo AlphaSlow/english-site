@@ -188,3 +188,59 @@ footer p {
     margin: 0 auto; /* Centers the content */
     padding: 0 20px; /* Adds margin on the sides */
 }
+
+.hamburger-menu {
+    display: none; /* Hide by default on large screens */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+
+  /* 🆕 NEW: Hide standard nav and show hamburger button on mobile. 🆕 */
+  .nav-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Adjust to sit below the navbar */
+      right: 10px;
+      background-color: #333;
+      width: 200px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 999;
+      padding: 10px 0;
+      align-items: flex-start;
+  }
+
+  .nav-list.active {
+      display: flex;
+  }
+
+  .hamburger-menu {
+      display: block;
+  }
+
+  .nav-item {
+      width: 100%;
+      margin: 0;
+  }
+
+  .nav-link {
+      padding: 10px 15px;
+  }
+
+  .dropdown-menu {
+      position: static;
+      background-color: #444;
+      width: 100%;
+      box-shadow: none;
+  }
+}

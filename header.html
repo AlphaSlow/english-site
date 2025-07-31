@@ -1,37 +1,36 @@
-<!-- <nav class="navbar">
-    <ul class="nav-list">
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link">Movies</a>
-            <ul class="dropdown-menu">
-                <li><a href="movies1.html" class="dropdown-link">Movies 1</a></li>
-                <li><a href="movies2.html" class="dropdown-link">Movies 2</a></li>
-            </ul>
-        </li>
-        <li class="nav-item"><a href="books.html" class="nav-link">Books</a></li>
-        <li class="nav-item"><a href="other.html" class="nav-link">Other</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-    </ul>
-</nav> -->
-
-<nav class="navbar">
-    <div class="navbar-content">
-        <a href="#" class="navbar-logo-left">
-            <img src="images/su logo.png" alt="Left Logo">
-        </a>
-        <ul class="nav-list">
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link">Movies</a>
-                <ul class="dropdown-menu">
-                    <li><a href="movies1.html" class="dropdown-link">Movies 1</a></li>
-                    <li><a href="movies2.html" class="dropdown-link">Movies 2</a></li>
+<header>
+    <div class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo-left">
+                <a href="#"><img src="https://via.placeholder.com/40" alt="Logo"></a>
+            </div>
+            <button class="hamburger-menu" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <nav>
+                <ul class="nav-list" id="mobile-nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Services <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="#">Service 1</a></li>
+                            <li class="dropdown-item"><a href="#">Service 2</a></li>
+                            <li class="dropdown-item"><a href="#">Service 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
                 </ul>
-            </li>
-            <li class="nav-item"><a href="books.html" class="nav-link">Books</a></li>
-            <li class="nav-item"><a href="other.html" class="nav-link">Other</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-        <a href="#" class="navbar-logo-right">
-            <img src="images/su logo.png" alt="Right Logo">
-        </a>
+            </nav>
+            <div class="navbar-logo-right">
+                <a href="#"><img src="https://via.placeholder.com/40" alt="Logo"></a>
+            </div>
+        </div>
     </div>
-</nav>
+</header>
+<script>
+    function toggleMenu() {
+        const navList = document.getElementById('mobile-nav-list');
+        navList.classList.toggle('active');
+    }
+</script>
