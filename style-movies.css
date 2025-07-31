@@ -29,9 +29,39 @@
 
 /* Optional: Add a responsive touch if needed */
 @media (max-width: 768px) {
-    .facts-container {
-        margin: 20px 15px; /* Adjust margins for smaller screens */
-        padding: 15px 20px; /* Adjust padding */
+    .listening-clip, .real-talk-clip { /* Added .real-talk-clip here */
+        flex-direction: column; /* Stack video and transcript on smaller screens */
+        align-items: flex-start; /* Align stacked items to the start */
+    }
+
+    .listening-clip .clip-video, .real-talk-clip .clip-video { /* Added .real-talk-clip here */
+        width: 100%; /* Video takes full width on small screens */
+        height: auto; /* Allow height to adjust */
+        padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+    }
+
+    .listening-clip .clip-transcript, .real-talk-clip .clip-text { /* Added .real-talk-clip and .clip-text */
+        max-width: 100%; /* Transcript takes full width */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    /* 🆕 MODIFIED: Apply flex-wrap and other properties only on small screens. 🆕 */
+    .controls-and-feedback {
+        flex-wrap: wrap;
+    }
+
+    .controls-and-feedback .feedback-box {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Stack buttons for navigation on small screens */
+    .nav-sections {
+        flex-direction: column; /* Stack buttons vertically to ensure they're all the same size and not squashed */
+    }
+
+    .nav-sections button {
+        width: 100%; /* Make buttons full-width */
     }
 }
 
@@ -123,16 +153,16 @@
 
 /* New style for the wrapper around buttons and feedback */
 .controls-and-feedback {
-    display: flex;
-    align-items: center; /* Align items vertically in the middle */
-    gap: 10px; /* Space between buttons and feedback box */
-    margin-top: 10px; /* Space from the paragraph above */
-    /* 🆕 MODIFIED: Prevent wrapping so feedback box stays on the same line 🆕 */
-    flex-wrap: nowrap; /* Keep items on a single line */
-    /* 🆕 NEW: Allow feedback box to take available space 🆕 */
-    justify-content: flex-start; /* Align items to the start of the line */
-    width: 100%; /* Ensure it takes full width for flex distribution */
+  display: flex;
+  align-items: center; /* Align items vertically in the middle */
+  gap: 10px; /* Space between buttons and feedback box */
+  margin-top: 10px; /* Space from the paragraph above */
+  /* flex-wrap: wrap; */
+  justify-content: flex-start; /* Align items to the start of the line */
+  width: 100%; /* Ensure it takes full width for flex distribution */
 }
+
+
 
 
 /* Styles for the input fields in listening blanks */
@@ -189,7 +219,6 @@
     flex-shrink: 1; /* Allow it to shrink if necessary */
     max-width: 100%; /* Prevent it from overflowing its parent */
     /* min-width: 150px; /* Optional: ensure a minimum width for readability */
-
     opacity: 0;
     visibility: hidden;
     transition: opacity 1.5s ease-out, visibility 1.5s ease-out; /* Increased duration to 1.5s */
@@ -198,7 +227,6 @@
     overflow-wrap: break-word;
     display: flex;
 }
-
 
 .feedback-box .feedback-box-icon {
     font-size: 1.5em;
@@ -235,8 +263,11 @@
         width: calc(100% - 20px); /* Adjust width for small screens */
     }
     .controls-and-feedback {
-        flex-direction: column; /* Stack buttons and feedback on small screens */
         align-items: flex-start;
+    }
+    .feedback-box {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
