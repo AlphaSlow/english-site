@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="English practice, ESL, EFL, language learning, short films, interactive lessons">
+    <meta name="description" content="Improve your English with interactive lessons based on engaging short films. Practice listening, comprehension, and vocabulary.">
+    <title>English Practice With Short Films</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="page-content-wrapper">
+        <h1>Welcome to English Practice With Short Films!</h1>
+
+        <section class="introduction">
+            <p>Welcome to our platform designed to help you improve your English skills through the engaging medium of short films. Here, you'll find interactive exercises focused on listening comprehension, vocabulary building, and understanding real-world English usage.</p>
+            <p>Each film comes with tailored activities to make your learning experience effective and enjoyable. Dive in and start practicing today!</p>
+        </section>
+
+        <section class="movies-list section">
+            <h2>Our Films</h2>
+            <div class="movie-card-container">
+                <div class="movie-card">
+                    <h3>Don't Look Away</h3>
+                    <p>A suspenseful short film perfect for intermediate learners.</p>
+                    <a href="dla.html" class="button">Start Learning</a>
+                </div>
+                </div>
+        </section>
+
+        <section class="how-it-works section">
+            <h2>How It Works</h2>
+            <ul>
+                <li>Watch a short film without subtitles first to test your general understanding.</li>
+                <li>Engage with interactive listening blanks to catch specific words and phrases.</li>
+                <li>Test your overall comprehension with multiple-choice questions.</li>
+                <li>Expand your vocabulary with drag-and-drop exercises.</li>
+                <li>Learn "Real Talk" – common expressions and slang used by native speakers.</li>
+            </ul>
+        </section>
+
+        <section class="get-started section">
+            <h2>Get Started</h2>
+            <p>Ready to improve your English? Choose a film from the list above and begin your journey!</p>
+            <a href="dla.html" class="button primary-button">Go to First Film: Don't Look Away</a>
+        </section>
+
+    </div>
+
+    <footer>
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <script src="script-movies.js"></script>
+    <script>
+        // Initialize the page manager for header/footer loading only on index page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Only load header and footer, no specific pageData needed for index.html
+            pageManager.init({}); // Pass an empty object or just enough for header/footer
+        });
+    </script>
+</body>
+</html>

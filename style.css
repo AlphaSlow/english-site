@@ -1,0 +1,190 @@
+/* Basic Reset & Body Styles. */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e3f9f9;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px; /* Space above the footer */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+.p1 {
+  font-family: Helvetica, sans-serif;
+}
+
+.instruction-box {
+    padding: 10px 10px; /* 🆕 MODIFIED: Increased right padding to 25px (from 15px) */
+    margin-bottom: 20px; /* Space below the box */
+    background-color: #eff7ff; /* Light blue/grey for a calm feel */
+    border: 1px solid #cceeff; /* Slightly darker blue border */
+    /* border-left: 5px solid #007bff; /* A prominent left border for emphasis */
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 1.05em; /* Slightly larger font for readability */
+    line-height: 1.5; /* Good line spacing */
+    color: #333; /* Darker text for good contrast */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    width: fit-content; /* Make width fit content horizontally */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+/* .instruction-box p {
+    margin-right: 10px;
+} */
+
+/* For html icons, if any exist (like Font Awesome) */
+.instruction-box .icon {
+    margin-right: 10px;
+    margin-left: 6px;
+    color: #00bbff; /* Match icon color to border */
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar-content {
+    display: flex; /* Use Flexbox to arrange items horizontally */
+    justify-content: space-between; /* Pushes items to the ends with space between */
+    align-items: center; /* Vertically centers items */
+    max-width: 1200px; /* Limit content width if needed */
+    margin: 0 auto; /* Center the content within the navbar */
+    padding: 0 20px; /* Add some padding on the sides */
+}
+
+.navbar-logo-left img,
+.navbar-logo-right img {
+    height: 40px; /* Adjust as needed for your logo size */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Aligns image nicely with text if any */
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Makes menu items horizontal */
+    /* Removed justify-content: center; from here as navbar-content handles overall centering */
+}
+
+.nav-item {
+    position: relative; /* Needed for dropdown positioning */
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: #575757;
+}
+
+
+
+/* Added specific style for the left button to push it to the left */
+.page-navigation .left-button-container {
+    margin-right: auto; /* Pushes this element and everything after it to the right */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%; /* Position below the parent nav item */
+    left: 0;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Ensure dropdown is above other content */
+    display: none; /* Hidden by default */
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #575757;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-link {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-link:hover {
+    background-color: #666;
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Content Box Styling (for Movies 1 and Movies 2 pages) */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Limit content width */
+    margin: 20px auto; /* Center the content */
+}
+
+.content-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.content-box img {
+    max-width: 200px; /* Maximum width for pictures */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto 10px auto; /* Center image and add bottom margin */
+}
+
+.content-box p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+.page-content-wrapper {
+    max-width: 1200px; /* Or your desired max width */
+    margin: 0 auto; /* Centers the content */
+    padding: 0 20px; /* Adds margin on the sides */
+}

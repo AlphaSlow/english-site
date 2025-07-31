@@ -1,0 +1,424 @@
+/* Styles specific to dla.html */
+
+.video-main-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.video-main-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.facts-container {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.facts-container p {
+    margin: 5px 0;
+}
+
+/* Optional: Add a responsive touch if needed */
+@media (max-width: 768px) {
+    .facts-container {
+        margin: 20px 15px; /* Adjust margins for smaller screens */
+        padding: 15px 20px; /* Adjust padding */
+    }
+}
+
+.section {
+    padding: 20px; /* Base padding for sections */
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Adjustment to move text closer to the top for sections */
+.section h2 {
+    margin-top: 0; /* Remove default top margin from heading */
+    padding-top: 0; /* Remove potential top padding */
+}
+
+.section p:first-of-type {
+    margin-top: 0; /* Remove default top margin from the first paragraph */
+    padding-top: 0;
+}
+
+/* Styles for new navigation buttons */
+.nav-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+.nav-sections a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-sections button {
+    background-color: #007bff; /* Blue color for navigation buttons */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.nav-sections button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for Listening section clips */
+.listening-clip,
+.real-talk-clip { /* Added .real-talk-clip here */
+    display: flex;
+    align-items: flex-start; /* Align items to the start (top) */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 15px; /* Space between video and transcript/text */
+    position: relative; /* Needed for absolute positioning of feedback box if desired */
+}
+
+.listening-clip .clip-video,
+.real-talk-clip .clip-video { /* Added .real-talk-clip here */
+    flex-shrink: 0; /* Prevent video from shrinking */
+    width: 250px; /* Max width for small clip */
+    height: 140.625px; /* 16:9 aspect ratio for 250px width */
+    position: relative;
+    overflow: hidden; /* Ensure content stays within bounds */
+}
+
+/* Adjustments for the new <video> tag */
+.listening-clip .clip-video video,
+.real-talk-clip .clip-video video { /* Added .real-talk-clip here */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the area without distortion */
+}
+
+.listening-clip .clip-transcript,
+.real-talk-clip .clip-text { /* Added .real-talk-clip and .clip-text */
+    flex-grow: 1; /* Allow transcript/text to take remaining space */
+    /* Adjusted max-width to allow more space, accounting for gap */
+    max-width: calc(100% - 250px - 25px); /* Increased gap for visual separation */
+    padding-left: 10px; /* Slight padding to push text right */
+    display: flex; /* Make clip-transcript a flex container */
+    flex-direction: column; /* Stack its children (paragraph, buttons, feedback) vertically */
+}
+
+/* New style for the wrapper around buttons and feedback */
+.controls-and-feedback {
+    display: flex;
+    align-items: center; /* Align items vertically in the middle */
+    gap: 10px; /* Space between buttons and feedback box */
+    margin-top: 10px; /* Space from the paragraph above */
+    /* 🆕 MODIFIED: Prevent wrapping so feedback box stays on the same line 🆕 */
+    flex-wrap: nowrap; /* Keep items on a single line */
+    /* 🆕 NEW: Allow feedback box to take available space 🆕 */
+    justify-content: flex-start; /* Align items to the start of the line */
+    width: 100%; /* Ensure it takes full width for flex distribution */
+}
+
+
+/* Styles for the input fields in listening blanks */
+.blank-word {
+    display: inline-block; /* Use inline-block to flow with text */
+    vertical-align: baseline; /* Align with surrounding text baseline */
+    min-width: 30px; /* Adjusted: Smaller minimum width for the line */
+    margin: 0 1px; /* Adjusted: Very small horizontal margin around the blank */
+}
+
+.blank-word input[type="text"] {
+    border: none; /* Removed: No border at all for the blank line */
+    padding: 0; /* Adjusted: No padding */
+    margin: 0; /* No margin */
+    background-color: transparent; /* Transparent background */
+    font-family: inherit; /* Inherit font from parent for consistency */
+    font-size: 1em; /* Inherit font size */
+    text-align: left; /* Changed: Cursor starts on the left */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease; /* Smooth transition for focus */
+    width: 100%; /* Ensure input takes full width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    color: inherit; /* Inherit text color */
+}
+
+/* Highlight input on focus */
+.blank-word input[type="text"]:focus {
+    border-color: #007bff; /* Blue border on focus (if any border present) */
+}
+
+/* Styles for a correctly filled blank - only change text color */
+.blank-word.correct input[type="text"] {
+    color: #28a745; /* Green text */
+    /* border-color: #28a745; If you want a border, uncomment and adjust color */
+}
+
+/* Styles for an incorrectly filled blank - only change text color */
+.blank-word.incorrect input[type="text"] {
+    color: #dc3545; /* Red text */
+    /* border-color: #dc3545; If you want a border, uncomment and adjust color */
+}
+
+/* Styles for the feedback box */
+.feedback-box {
+    background-color: #e9f7ef;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 5px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    flex-shrink: 1; /* Allow it to shrink if necessary */
+    max-width: 100%; /* Prevent it from overflowing its parent */
+    /* min-width: 150px; /* Optional: ensure a minimum width for readability */
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-out, visibility 1.5s ease-out; /* Increased duration to 1.5s */
+    max-width: none; /* Remove previous max-width as flex-grow will handle it */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+}
+
+
+.feedback-box .feedback-box-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #28a745; /* Green tick */
+    line-height: 1; /* Align vertically with text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.feedback-box .feedback-box-text {
+    flex-grow: 1; /* Allow text to take up remaining space */
+    line-height: 1.4;
+}
+
+/* Responsive adjustments for listening clips */
+@media (max-width: 768px) {
+    .listening-clip,
+    .real-talk-clip { /* Added .real-talk-clip here */
+        flex-direction: column; /* Stack video and transcript on smaller screens */
+        align-items: flex-start; /* Align stacked items to the start */
+    }
+    .listening-clip .clip-video,
+    .real-talk-clip .clip-video { /* Added .real-talk-clip here */
+        width: 100%; /* Video takes full width on small screens */
+        height: auto; /* Allow height to adjust */
+        padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+    }
+    .listening-clip .clip-transcript,
+    .real-talk-clip .clip-text { /* Added .real-talk-clip and .clip-text */
+        max-width: 100%; /* Transcript takes full width */
+        padding-left: 0; /* Remove padding when stacked */
+    }
+    .blank-word input[type="text"] {
+        width: calc(100% - 20px); /* Adjust width for small screens */
+    }
+    .controls-and-feedback {
+        flex-direction: column; /* Stack buttons and feedback on small screens */
+        align-items: flex-start;
+    }
+}
+
+/* Adjust spacing for buttons in listening clips */
+.listening-clip .clip-transcript button {
+    margin-top: 0; /* Removed explicit margin-top here, as gap in controls-and-feedback manages spacing */
+}
+
+.hint-button, .solution-button {
+    background-color: #555;
+    color: white;
+    padding: 6px 10px; /* Reduced padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em; /* Slightly smaller font size */
+    /* margin-right: 10px; Removed, gap in controls-and-feedback handles spacing */
+    /* margin-top: 10px; Removed, gap in controls-and-feedback handles spacing */
+    flex-shrink: 0;
+    max-width: 100px; /* Optional: Set a max-width if needed */
+    text-align: center; /* Center text within the button */
+}
+
+/* .reset-button {
+    background-color: #555;
+} */
+
+.solution-button {
+    background-color: #007bff;
+}
+
+/* Styles for Vocabulary Drag & Drop */
+.draggable-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.draggable-word {
+    background-color: #e0e0e0;
+    border: 1px solid #bbb;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: grab;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.1s ease-out;
+}
+
+.draggable-word:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}
+
+.blank-drop-target {
+    display: inline-block;
+    min-width: 80px; /* Wider blank for words */
+    height: 1.5em; /* Height to match line height */
+    border: 1px dashed #999;
+    background-color: #fefefe;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.blank-drop-target.correct-answer {
+    background-color: #d4edda; /* Light green */
+    border-color: #28a745; /* Green border */
+    color: #155724; /* Darker green text */
+}
+
+.blank-drop-target.incorrect-answer {
+    background-color: #f8d7da; /* Light red */
+    border-color: #dc3545; /* Red border */
+    color: #721c24; /* Darker red text */
+}
+
+
+/* Styles for Comprehension 1 section */
+.question {
+    margin-bottom: 20px;
+}
+
+/* 🆕 NEW: Add a style for the question paragraph to reduce space below it */
+.question p {
+    margin-bottom: 5px; /* Reduced space between question text and radio buttons */
+    margin-top: 0; /* Ensure no extra top margin */
+}
+
+/* 🆕 NEW: Add a style for the options container to further adjust spacing */
+.question .options {
+    margin-top: 5px; /* Small space between question text and options */
+    margin-bottom: 0; /* Remove default margin if any, as .question will handle the spacing */
+}
+
+.options label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.check-answers-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin for spacing */
+    margin-right: 10px;
+}
+
+.check-answers-button:hover {
+    background-color: #45a049;
+}
+
+.reset-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin for spacing */
+}
+
+.reset-button:hover {
+    background-color: #0056bf;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+/* Styles for highlighting words in Comprehension 2 (Find the Mistakes) */
+.highlighted {
+    background-color: yellow; /* Or any color you prefer */
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Styles for navigation buttons at the bottom */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.page-navigation a {
+    text-decoration: none;
+}
+
+.page-navigation button {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.page-navigation button:hover {
+    background-color: #555;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="English practice, movie English, ESL, EFL, listening practice, vocabulary, comprehension, intermediate English, Don't Look Away, online English lessons">
+    <meta name="description" content="Improve your English with interactive listening, comprehension, and vocabulary activities based on the short film 'Don't Look Away.' Perfect for intermediate English learners.">
+    <title>Don't Look Away - English Practice With Short Films</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-movies.css">
+    <script>
+        // Make sure all necessary data is uncommented and complete here!
+        const pageData = {
+            mainVideoSrc: "https://www.youtube.com/embed/4f3hG-5grlw",
+            listeningBlanks: [
+                {
+                    id: 'blank1',
+                    solution: 'supposed',
+                    explanation: 'In this context, "supposed to" means "expected to". Savannah is asking when her mother is expected to arrive.',
+                    videoSrc: 'clips/DLA/DLA Listening 1.mp4',
+                    transcript: '<i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed"></span> to get here again?<br><i>Dad:</i> &nbspAbout 4:30, but knowing her, she’ll probably be early.'
+                },
+                {
+                    id: 'blank2',
+                    solution: 'staring',
+                    explanation: '"Staring at" means looking hard at something or someone.',
+                    videoSrc: 'clips/DLA/DLA Listening 2.mp4',
+                    transcript: '<i>Savannah:</i> Ok, cos, there\'s a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring">_______</span> at me.<br><i>Dad:</i> A man? What does he look like?'
+                },
+                {
+                    id: 'blank3',
+                    solution: 'Creepy',
+                    explanation: '"Creepy" describes something that causes an unpleasant feeling of fear or unease. Jim saying that the man makes him feel uncomfortable.',
+                    videoSrc: 'clips/DLA/DLA Listening 3.mp4',
+                    transcript: '<i>Savannah:</i> You can see it too?<br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="creepy">_______</span> suit guy. He’s staring at me.'
+                },
+                {
+                    id: 'blank4',
+                    solution: 'going on',
+                    explanation: '"What\'s going on?" is similar to "What\'s happening?" or "What\'s the problem?".',
+                    videoSrc: 'clips/DLA/DLA Listening 4.mp4',
+                    transcript: '<i>Savannah</i>: Dad, what the hell was that? What\'s <span class="blank-word" id="blank4" data-solution="going on">_______</span>?'
+                }
+                // ... add more listening blanks as needed
+            ],
+            comprehensionAnswers: {
+                q1: "b", q2: "b", q3: "d", q4: "c", q5: "b"
+            },
+            mistakesToHighlight: [
+                "washing her hair", "behind a tree", "sitting", "nose", "standing in the house"
+            ],
+            vocabularyDragWords: ['makeup', 'chains', 'lawn', 'creepy', 'drawer'],
+            vocabularySentences: [
+                { text: "At the start of the movie, Savannah was doing her ____.", correctWord: "makeup" },
+                { text: "The man was wearing a mask with ____ on it.", correctWord: "chains" },
+                { text: "Savannah first saw the man standing on the ____ in the garden.", correctWord: "lawn" },
+                { text: "She thought he looked ____.", correctWord: "creepy" },
+                { text: "Savannah covered his eyes with tape that she found in her ____.", correctWord: "drawer" }
+            ],
+            // displayNavigationButtons: false // Set to false to hide the buttons
+        };
+    </script>
+
+</head>
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="page-content-wrapper">
+        <h1>Don't Look Away</h1>
+
+        <div class="video-main-container">
+            <iframe id="main-video-iframe" src="https://www.youtube.com/embed/4f3hG-5grlw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="facts-container">
+            <p><strong>Title:</strong> Don't Look Away</p>
+            <p><strong>By:</strong> Christopher Cox</p>
+            <p><strong>Genre:</strong> Horror</p>
+            <p><strong>Language Difficulty:</strong> Intermediate</p>
+            <p><strong>Story Difficulty:</strong> Easy</p>
+            <p><strong>Ages:</strong> Teen+ (some bad language and scary scenes)</p>
+            <p><strong>Run Time:</strong> 8 minutes 20 seconds</p>
+        </div>
+
+        <section id="nav-buttons-section" class="nav-sections hidden-by-default">
+            <a href="#listening"><button>Listening</button></a>
+            <a href="#comprehension1"><button>Test Your Understanding</button></a>
+            <a href="#mistakes"><button>Find the Mistakes</button></a>
+            <a href="#vocabulary"><button>Vocabulary</button></a>
+            <a href="#real-talk"><button>Real Talk</button></a>
+            <a href="#speaking"><button>Speaking Activities</button></a>
+        </section>
+
+        <div id="listening" class="section">
+            <h2>Listening</h2>
+            <div class="instruction-box"><i class="fas fa-lightbulb icon"></i>Press the Hint button as many times as you like to see more and more information. Press the Solution button to see the full answer.
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <video id="listening1-video" controls>
+                        <source src="clips/DLA/DLA Listening 1.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-transcript">
+                    <p><i>Savannah</i>: Yeah, dad, when is mom <span class="blank-word" id="blank1" data-solution="supposed" data-explanation="In this context, 'supposed to' means expected to or meant to. Savannah is asking when her mother is expected to arrive."></span> to get here again?
+                    <br><i>Dad:</i> &nbspAbout 4:30, but knowing her, she’ll probably be early.</p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank1" data-solution="supposed">Hint</button>
+                        <button class="solution-button" data-blank-id="blank1" data-solution="supposed">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <video id="listening2-video" controls>
+                        <source src="clips/DLA/DLA Listening 2.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-transcript">
+                    <p><i>Savannah:</i> Ok, cos, there's a weird man outside our window <span class="blank-word" id="blank2" data-solution="staring" data-explanation="'Staring at' means looking fixedly or intently at something or someone. Savannah feels a direct, intense gaze from the man.">_______</span> at me.
+                    <br><i>Dad:</i> A man? What does he look like?</p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank2" data-solution="staring">Hint</button>
+                        <button class="solution-button" data-blank-id="blank2" data-solution="staring">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <video id="listening3-video" controls>
+                        <source src="clips/DLA/DLA Listening 3.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-transcript">
+                    <p><i>Savannah:</i> You can see it too?
+                    <br><i>Jim:</i> Yeah. <span class="blank-word" id="blank3" data-solution="Creepy" data-explanation="'Creepy' describes something that causes an unpleasant feeling of fear or unease. Jim is suggesting the man looks unsettling.">_______</span> suit guy. He’s staring at me. </p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank3" data-solution="Creepy">Hint</button>
+                        <button class="solution-button" data-blank-id="blank3" data-solution="Creepy">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
+            </div>
+
+            <div class="listening-clip">
+                <div class="clip-video">
+                    <video id="listening4-video" controls>
+                        <source src="clips/DLA/DLA Listening 4.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-transcript">
+                    <p><i>Savannah</i>: Dad, what the hell was that? What's <span class="blank-word" id="blank4" data-solution="going on" data-explanation="'What\'s going on?' is a common informal way to ask what is happening or what the situation is. Savannah is asking for an explanation for the strange events.">_______</span>?</p>
+                    <div class="controls-and-feedback"> <button class="hint-button" data-blank-id="blank4" data-solution="going on">Hint</button>
+                        <button class="solution-button" data-blank-id="blank4" data-solution="going on">Solution</button>
+                        <div class="feedback-box"></div>
+                    </div> </div>
+            </div>
+        </div>
+
+
+        <div id="comprehension1" class="section">
+            <h2>Test your understanding</h2>
+            <div class="question">
+                <p>1. What happens if you look away from the creepy man?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. He disappears.</label>
+                    <label><input type="radio" name="q1" value="b"> B. He gets closer.</label>
+                    <label><input type="radio" name="q1" value="c"> C. Nothing happens.</label>
+                    <label><input type="radio" name="q1" value="d"> D. He multiplies.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What does the creepy man look like?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. A clown.</label>
+                    <label><input type="radio" name="q2" value="b"> B. A man in a suit.</label>
+                    <label><input type="radio" name="q2" value="c"> C. A shadow.</label>
+                    <label><input type="radio" name="q2" value="d"> D. A monster.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>3. What did we NOT see the man wearing?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> A. Chains.</label>
+                    <label><input type="radio" name="q3" value="b"> B. A tie.</label>
+                    <label><input type="radio" name="q3" value="c"> C. A torn jacket.</label>
+                    <label><input type="radio" name="q3" value="d"> D. A cap.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. What did the father use to get rid of the creepy man?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> A. A gun.</label>
+                    <label><input type="radio" name="q4" value="b"> B. Water.</label>
+                    <label><input type="radio" name="q4" value="c"> C. A mirror.</label>
+                    <label><input type="radio" name="q4" value="d"> D. His hands.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>5. What is implied at the end of the video?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> A. The family escapes.</label>
+                    <label><input type="radio" name="q5" value="b"> B. The mother is in danger.</label>
+                    <label><input type="radio" name="q5" value="c"> C. The creepy man disappears.</label>
+                    <label><input type="radio" name="q5" value="d"> D. The police arrive.</label>
+                </div>
+            </div>
+            <button class="check-answers-button">Check Answers</button>
+            <div id="answer-feedback"></div>
+        </div>
+
+        <div id="mistakes" class="section">
+            <h2>Find the Mistakes</h2>
+            <div class="instruction-box"><i class="fas fa-lightbulb icon"></i>There are five mistakes in the writing below. Can you find them all?</div>
+            <p id="mistakes-text-content">
+            The movie opens with a scene of a girl, Savannah, washing her hair. Her brother shouts at her from outside and they argue about who should do the chores. He opens her bedroom door and jokingly insults her. She responds by slamming the door and telling him to go away. She walks over to the window and looks out into the garden. There, she sees a creepy looking man standing behind a tree. The man's face is covered by a mask and he is wearing a black and white suit with a torn jacket. Right after seeing him, her phone rings and she answers it. It's her father calling. She tells him about the weird looking man. The father tells her not to look away from the man and that he will be home soon. Her brother knocks on the door and opens it. She tells him to lock all the doors in the house, but before doing that, he looks outside and sees the man in the suit. She explains to Jim that he must keep looking at the man, and says that she is going to lock the doors. She thinks that if one person looks at it, it will be good enough. But after locking the doors, she can't see the man anymore, even though Jim can. Suddenly she sees the creepy man sitting in her room. Savannah covers the man's nose with tape, thinking that that would protect her, but when she looks away, it attacks her. Jim jumps in to defend her. After a short fight, they can both see the man in the room, so he stops moving. The children's father runs into the room. He picks up a mirror and holds it in front of the man's face. When the man looks into the mirror, he is sucked into it. The father then smashes the mirror. Savannah demands an explanation for what has happened. Her father explains that the man has been following him and his wife for a long time. Suddenly, Jim realizes that he can't see the man that he was looking at outside. The father tells them that the creepy man had been able to make a copy of himself. When the doorbell rings, they realize that the danger is not over. The movie ends with the creepy looking man standing in the house. </p>
+            <button class="check-answers-button">Check answers</button>
+        </div>
+
+        <div id="vocabulary" class="section">
+            <h2>Vocabulary</h2>
+            <div class="instruction-box"><i class="fas fa-lightbulb icon"></i>Drag the correct word to each blank.</div>
+            <div class="draggable-words" id="draggable-words">
+            </div>
+            <ol id="vocabulary-sentences">
+            </ol>
+            <button class="check-answers-button">Check answers</button>
+            <button class="reset-button">Reset</button>
+            <div id="vocabulary-feedback"></div>
+        </div>
+
+        <div id="real-talk" class="section">
+            <h2>Real Talk</h2>
+            <div class="instruction-box"><i class="fas fa-lightbulb icon"></i>Here you will find some language that can often be heard in real life, but isn't usually found in textbooks.</div>
+            <div class="real-talk-clip">
+                <div class="clip-video">
+                    <video id="tip1-video" controls>
+                        <source src="clips/DLA/DLA cos.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-text">
+                    <h3>Cos</h3>
+                    <p>"Cos" is a very common informal contraction of "because." You'll hear native speakers use it all the time in casual conversation. For example, "I'm tired, cos I stayed up late." It is sometimes spelt "cuz".</p>
+                </div>
+            </div>
+
+            <div class="real-talk-clip">
+                <div class="clip-video">
+                    <video id="tip2-video" controls>
+                        <source src="clips/DLA/DLA like.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-text">
+                    <h3>Like</h3>
+                    <p>The word "like" is often used as a filler word, similar to "um" or "uh". In this clip, we hear Savannah use it several times in a single sentence.</p>
+                </div>
+            </div>
+
+            <div class="real-talk-clip">
+                <div class="clip-video">
+                    <video id="tip3-video" controls>
+                        <source src="clips/DLA/DLA bitch.mp4" type="video/mp4">
+                        Your browser can not play this video.
+                    </video>
+                </div>
+                <div class="clip-text">
+                    <h3>Bitch</h3>
+                    <p>This word is used in many ways. Most of them are not polite. In particular, when said to a woman, it can be considered a very strong insult, so avoid this word unless you know what you are doing. Even though Savannah knows that her brother is just joking, her reaction shows that she is not impressed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="speaking" class="section">
+            <h2>Speaking Activities</h2>
+            <p>Are you interested in some group speaking activities? <a href="contact.html">Contact us</a> to find out more about how you can talk about this film with a class and a teacher!</p>
+        </div>
+
+        <nav class="page-navigation">
+            <a href="crow.html">
+                <button>← Previous</button>
+            </a>
+            <a href="index.html" class="home-button-container">
+                <button>Home</button>
+            </a>
+            <a href="next-page.html">
+                <button>Next →</button>
+            </a>
+        </nav>
+    </div>
+    <footer>
+        <div id="footer-placeholder"></div>
+    </footer>
+    <script src="script-movies.js"></script>
+    <script>
+        // Initialize the page manager with the data defined above
+        document.addEventListener('DOMContentLoaded', () => {
+            pageManager.init(pageData);
+        });
+    </script>
+</body>
+</html>
