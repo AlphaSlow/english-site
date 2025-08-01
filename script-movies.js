@@ -98,8 +98,8 @@ const pageManager = (function() {
         _displayNavigationButtons = data.displayNavigationButtons !== undefined ? data.displayNavigationButtons : true;
 
         // Load common elements (header, footer)
-        _loadPartial('header-placeholder', 'header.html');
-        _loadPartial('footer-placeholder', 'footer.html');
+        // _loadPartial('header-placeholder', 'header.html');
+        // _loadPartial('footer-placeholder', 'footer.html');
 
         const navButtonsSection = document.getElementById('nav-buttons-section');
         if (navButtonsSection) {
@@ -118,20 +118,20 @@ const pageManager = (function() {
         setupListeningBlanks(); // Setup interactive blanks
     }
 
-    function _loadPartial(placeholderId, filePath) {
-        fetch(filePath)
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById(placeholderId).innerHTML = html;
-            })
-            .catch(error => {
-                console.error(`Error loading ${filePath}:`, error);
-                document.getElementById(placeholderId).innerHTML = `<p>Error loading ${filePath.split('/').pop()}.</p>`;
-            });
-    }
+    // function _loadPartial(placeholderId, filePath) {
+    //     fetch(filePath)
+    //         .then(response => {
+    //             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    //             return response.text();
+    //         })
+    //         .then(html => {
+    //             document.getElementById(placeholderId).innerHTML = html;
+    //         })
+    //         .catch(error => {
+    //             console.error(`Error loading ${filePath}:`, error);
+    //             document.getElementById(placeholderId).innerHTML = `<p>Error loading ${filePath.split('/').pop()}.</p>`;
+    //         });
+    // }
 
     // --- JavaScript for Interactive Listening Blanks ---
 

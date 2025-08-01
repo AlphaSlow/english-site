@@ -81,12 +81,21 @@ footer p {
     vertical-align: middle; /* Aligns image nicely with text if any */
 }
 
+/* 🆕 NEW: Styles for the hamburger menu button. 🆕 */
+.hamburger-menu {
+    display: none; /* Hide by default on large screens */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
 .nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex; /* Makes menu items horizontal */
-    /* Removed justify-content: center; from here as navbar-content handles overall centering */
 }
 
 .nav-item {
@@ -104,7 +113,6 @@ footer p {
 .nav-link:hover {
     background-color: #575757;
 }
-
 
 
 /* Added specific style for the left button to push it to the left */
@@ -189,58 +197,76 @@ footer p {
     padding: 0 20px; /* Adds margin on the sides */
 }
 
-.hamburger-menu {
-    display: none; /* Hide by default on large screens */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2em;
-    cursor: pointer;
+#language-switcher {
+    margin-left: auto; /* Push the language switcher to the right */
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    margin-right: 10px;
 }
 
-/* Media query for smaller screens */
+.language-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; /* Adjust color to match your design */
+}
+
+.language-flag {
+    width: 24px; /* Adjust size of flag as needed */
+    height: 18px;
+    margin-right: 8px; /* Space between flag and text */
+}
+
+/* 🆕 NEW: Media query for small screens 🆕 */
 @media (max-width: 768px) {
-  .navbar-content {
-    padding: 0 10px; /* Adjust padding for smaller screens */
-  }
+    .navbar-content {
+        justify-content: space-between; /* Align items to the right */
+        align-items: center;
+        gap: 15px; /* Add some space between items */
+    }
 
-  /* 🆕 NEW: Hide standard nav and show hamburger button on mobile. 🆕 */
-  .nav-list {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px; /* Adjust to sit below the navbar */
-      right: 10px;
-      background-color: #333;
-      width: 200px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-      z-index: 999;
-      padding: 10px 0;
-      align-items: flex-start;
-  }
+    .nav-list {
+        display: none; /* Hide the horizontal nav by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        right: 10px;
+        background-color: #333;
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        z-index: 999;
+        padding: 10px 0;
+        align-items: flex-start;
+    }
 
-  .nav-list.active {
-      display: flex;
-  }
+    .nav-list.active {
+        display: flex; /* Show the vertical nav when 'active' class is present */
+    }
 
-  .hamburger-menu {
-      display: block;
-  }
+    .hamburger-menu {
+        margin-left: auto; /* Push the button to the far right */
+        display: block; /* Show the hamburger button on mobile */
+    }
 
-  .nav-item {
-      width: 100%;
-      margin: 0;
-  }
+    .nav-item {
+        width: 100%;
+        margin: 0;
+    }
 
-  .nav-link {
-      padding: 10px 15px;
-  }
+    .nav-link {
+        padding: 10px 15px;
+    }
 
-  .dropdown-menu {
-      position: static;
-      background-color: #444;
-      width: 100%;
-      box-shadow: none;
-  }
+    .dropdown-menu {
+        position: static;
+        background-color: #444;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .navbar-logo-right {
+        display: none; /* Hide right logo on mobile */
+    }
 }
